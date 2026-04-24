@@ -121,9 +121,8 @@ export default function WarTargets() {
               <span className={styles.titleAccent}>Tool</span>
             </h1>
             <p className={styles.subtitle}>
-              Raid-first intelligence with a sharper radar-terminal interface.
-              Keep the proven live search flow, compare engines quickly, and scan
-              targets through clearer profit, threat, and military context.
+              Built for raid-focused targeting with a faster, clearer scan.
+              Find profitable nations, weigh risk instantly, and move with better intel.
             </p>
             <div className={styles.heroCallouts}>
               <HeroChip icon={Radar} label="Radar terminal UI" />
@@ -210,7 +209,7 @@ export default function WarTargets() {
                   disabled={loading}
                 >
                   <Radar size={16} />
-                  {loading ? "Scanning..." : "Find Targets"}
+                  {loading ? "Scanning..." : "Locate Targets"}
                 </button>
               </div>
 
@@ -232,13 +231,12 @@ export default function WarTargets() {
 
                 <div className={styles.controlCard}>
                   <div className={styles.inlineLabel}>
-                    <span className={styles.controlLabel}>Engine Notes</span>
+                    <span className={styles.controlLabel}>System Status</span>
                     <InfoTooltip text={STAT_EXPLANATIONS.engine} />
                   </div>
                   <p className={styles.controlDescription}>
-                    Default keeps the proven BK-style feel. Advanced leans
-                    harder into projected net profit, lower retaliation
-                    exposure, and clearer reasoning.
+                    Running on the default scoring system.
+                    Advanced targeting logic is being refined and will be available soon.
                   </p>
                 </div>
               </div>
@@ -255,11 +253,11 @@ export default function WarTargets() {
             <div className={styles.warPlaceholder}>
               <TriangleAlert size={18} />
               <div>
-                <strong>War Mode foundation is next.</strong>
+                <strong>War Mode is not developed yet.</strong>
                 <p>
-                  Alliance mapping and treaty-context plumbing are now in the
-                  backend. The next slice will expose hostile-alliance filters,
-                  bloc detection, and war-target intents in the UI.
+                  This mode considers alliance mapping and treaty-context
+                  and is aimed to expose hostile-alliance nations,
+                  bloc detection, and best war-targets in globals.
                 </p>
               </div>
             </div>
