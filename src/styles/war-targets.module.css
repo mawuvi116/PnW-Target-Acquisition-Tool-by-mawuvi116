@@ -1,0 +1,799 @@
+@import url("https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&family=Funnel+Display:wght@400;500;600;700&display=swap");
+
+:root {
+  --bg: #05090b;
+  --bg-soft: rgba(6, 18, 15, 0.82);
+  --panel: rgba(7, 20, 17, 0.88);
+  --panel-strong: rgba(8, 24, 20, 0.94);
+  --text: #f3fff9;
+  --muted: #8fb0a1;
+  --line: rgba(0, 220, 130, 0.18);
+  --line-strong: rgba(0, 220, 130, 0.42);
+  --accent: #00dc82;
+  --accent-soft: rgba(0, 220, 130, 0.1);
+  --accent-bright: #91ffd3;
+  --warn: #ffc07a;
+}
+
+.page {
+  min-height: 100vh;
+  padding: 48px 24px 72px;
+  color: var(--text);
+  font-family: "Funnel Display", "Segoe UI", sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(0, 179, 255, 0.18), transparent 24%),
+    radial-gradient(circle at 18% 0%, rgba(0, 220, 130, 0.16), transparent 28%),
+    linear-gradient(rgba(0, 220, 130, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 220, 130, 0.05) 1px, transparent 1px),
+    linear-gradient(180deg, #06090c 0%, #030506 100%);
+  background-size: auto, auto, 56px 56px, 56px 56px, auto;
+  position: relative;
+}
+
+.page::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.02), transparent 22%),
+    radial-gradient(circle at center, transparent 58%, rgba(0, 0, 0, 0.3) 100%);
+  mix-blend-mode: screen;
+}
+
+.hero,
+.error,
+.emptyState,
+.metaRow,
+.summaryGrid,
+.layout {
+  max-width: 1240px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero {
+  display: grid;
+  gap: 24px;
+  padding-bottom: 28px;
+  margin-bottom: 18px;
+  border-bottom: 1px solid var(--line);
+}
+
+.heroHeader {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 28px;
+  align-items: start;
+}
+
+.heroCopy {
+  padding-top: 8px;
+}
+
+.eyebrow,
+.rank,
+.controlLabel,
+.metricLabel,
+.statLabel,
+.panelLabel,
+.snapshotLabel span,
+.troopLabel span {
+  font-family: "Optician Sans", "Bruno Ace SC", sans-serif;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.eyebrow {
+  margin: 0 0 14px;
+  color: var(--accent);
+  font-size: 0.76rem;
+}
+
+.title {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 12px;
+  font-family: "Bruno Ace SC", sans-serif;
+  font-size: clamp(2.2rem, 5vw, 3.85rem);
+  line-height: 1;
+}
+
+.titleAccent {
+  color: var(--accent);
+}
+
+.subtitle {
+  max-width: 60ch;
+  margin: 22px 0 0;
+  color: #b5ccc2;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.heroCallouts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.heroChip,
+.metricCard,
+.statCard,
+.breakdownCard,
+.card,
+.sideCard,
+.controlCard,
+.rangeCard,
+.fieldShell,
+.emptyState,
+.error {
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, rgba(7, 20, 17, 0.92), rgba(4, 12, 10, 0.88));
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.015),
+    0 0 0 1px rgba(0, 0, 0, 0.1),
+    0 14px 34px rgba(0, 0, 0, 0.22);
+}
+
+.heroChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  color: var(--accent-bright);
+  font-size: 0.88rem;
+}
+
+.panel {
+  padding: 20px;
+  border: 1px solid var(--line-strong);
+  background:
+    linear-gradient(180deg, rgba(4, 12, 10, 0.92), rgba(5, 15, 12, 0.84)),
+    rgba(0, 0, 0, 0.2);
+  box-shadow:
+    inset 0 0 0 1px rgba(0, 220, 130, 0.04),
+    0 0 42px rgba(0, 220, 130, 0.08),
+    0 24px 70px rgba(0, 0, 0, 0.34);
+  clip-path: polygon(0 0, calc(100% - 24px) 0, 100% 24px, 100% 100%, 0 100%);
+}
+
+.panelTop {
+  display: flex;
+  justify-content: flex-start;
+  gap: 18px;
+  margin-bottom: 14px;
+}
+
+.modeRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.engineToggle {
+  display: grid;
+  gap: 10px;
+  justify-items: end;
+  align-content: start;
+}
+
+.panelLabel {
+  color: var(--accent);
+  font-size: 0.72rem;
+}
+
+.modeButton {
+  min-height: 40px;
+  padding: 10px 14px;
+  border: 1px solid var(--line-strong);
+  border-radius: 10px;
+  color: var(--accent-bright);
+  background: rgba(3, 11, 9, 0.72);
+  font-family: "Optician Sans", "Bruno Ace SC", sans-serif;
+  font-size: 0.73rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    border-color 0.18s ease,
+    background-color 0.18s ease,
+    color 0.18s ease,
+    transform 0.18s ease;
+}
+
+.modeButton:hover {
+  border-color: rgba(145, 255, 211, 0.55);
+  transform: translateY(-1px);
+}
+
+.modeActive {
+  color: #07261e;
+  background: linear-gradient(135deg, #00dc82 0%, #7cffc9 100%);
+}
+
+.inputRow {
+  display: grid;
+  grid-template-columns: minmax(260px, 360px) minmax(240px, 340px) auto;
+  gap: 14px;
+  align-items: end;
+}
+
+.field {
+  display: grid;
+  gap: 10px;
+}
+
+.fieldShell {
+  display: grid;
+  gap: 10px;
+  min-height: 58px;
+  padding: 12px 16px;
+  border-radius: 14px;
+  color: var(--accent);
+}
+
+.fieldInnerLabel {
+  color: var(--accent);
+  font-family: "Optician Sans", "Bruno Ace SC", sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.fieldInputRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.input {
+  width: 100%;
+  border: none;
+  padding: 0;
+  color: var(--text);
+  background: transparent;
+  font-family: "Funnel Display", sans-serif;
+  font-size: 1rem;
+  outline: none;
+}
+
+.input::placeholder {
+  color: #6ea28e;
+}
+
+.rangeCard {
+  padding: 14px 16px;
+  border-radius: 14px;
+  min-width: 0;
+}
+
+.inlineLabel {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.rangeValue {
+  color: var(--accent-bright);
+  font-family: "Bruno Ace SC", sans-serif;
+  font-size: 0.85rem;
+}
+
+.range {
+  width: 100%;
+  accent-color: var(--accent);
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 58px;
+  border: 1px solid var(--line-strong);
+  border-radius: 14px;
+  padding: 0 20px;
+  color: #062319;
+  background: linear-gradient(135deg, #00dc82 0%, #96ffd5 100%);
+  font-family: "Optician Sans", "Bruno Ace SC", sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.button:disabled {
+  opacity: 0.7;
+  cursor: wait;
+}
+
+.controlGrid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.controlCard {
+  padding: 14px 16px;
+  border-radius: 14px;
+}
+
+.checkboxCard {
+  display: flex;
+  gap: 12px;
+  align-items: start;
+}
+
+.checkboxCard input {
+  margin-top: 3px;
+  accent-color: var(--accent);
+}
+
+.checkboxCard p,
+.sideText,
+.helperText,
+.warPlaceholder p,
+.controlDescription {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.controlLabel,
+.metricLabel,
+.statLabel,
+.snapshotLabel span,
+.troopLabel span {
+  display: block;
+  color: var(--accent);
+  font-size: 0.68rem;
+}
+
+.helperText {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.warPlaceholder,
+.error,
+.emptyState,
+.sideEmpty {
+  display: flex;
+  gap: 10px;
+  align-items: start;
+}
+
+.warPlaceholder,
+.error,
+.emptyState {
+  padding: 16px 18px;
+  border-radius: 14px;
+}
+
+.warPlaceholder,
+.error {
+  background: linear-gradient(180deg, rgba(35, 16, 17, 0.92), rgba(22, 8, 10, 0.9));
+  border: 1px solid rgba(255, 145, 145, 0.2);
+  color: #ffd7d7;
+}
+
+.summaryGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.metricCard {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 16px;
+  border-radius: 14px;
+}
+
+.metricCard strong,
+.statCard strong {
+  display: block;
+  margin-top: 4px;
+  font-size: 1.08rem;
+}
+
+.metaRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+  color: #83a393;
+  font-size: 0.9rem;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: 18px;
+}
+
+.results {
+  display: grid;
+  gap: 18px;
+}
+
+.card {
+  padding: 20px;
+  border-radius: 18px;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, transparent, rgba(145, 255, 211, 0.025), transparent),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.012), transparent 28%);
+}
+
+.topCard,
+.focusCard {
+  border-color: var(--line-strong);
+  box-shadow:
+    inset 0 0 0 1px rgba(0, 220, 130, 0.04),
+    0 0 14px rgba(0, 220, 130, 0.04),
+    0 18px 42px rgba(0, 0, 0, 0.28);
+}
+
+.cardTop {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: start;
+  margin-bottom: 16px;
+}
+
+.rank {
+  margin: 0 0 8px;
+  color: var(--accent);
+  font-size: 0.7rem;
+}
+
+.cardTitle {
+  margin: 0;
+  font-size: 1.72rem;
+  line-height: 1.05;
+}
+
+.targetLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.targetLink:hover {
+  color: var(--accent-bright);
+}
+
+.cardSubtle {
+  margin: 8px 0 0;
+  color: var(--muted);
+}
+
+.scoreBlock {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.unsafeBadge {
+  padding: 8px 12px;
+  border-radius: 999px;
+  color: #2f1808;
+  background: var(--warn);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.scoreBadge {
+  min-width: 82px;
+  padding: 12px 16px;
+  border: 1px solid currentColor;
+  border-radius: 14px;
+  text-align: center;
+  font-family: "Bruno Ace SC", sans-serif;
+  font-size: 1.18rem;
+  background: rgba(4, 12, 10, 0.9);
+}
+
+.scoreGreat {
+  color: #6dffc4;
+}
+
+.scoreGood {
+  color: #a7f3d0;
+}
+
+.scoreFair {
+  color: #f7d66f;
+}
+
+.scorePoor {
+  color: #f7a5b3;
+}
+
+.primaryStats,
+.breakdownGrid {
+  display: grid;
+  gap: 14px;
+}
+
+.primaryStats {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-bottom: 14px;
+}
+
+.statCard,
+.breakdownCard,
+.sideCard {
+  padding: 16px;
+  border-radius: 14px;
+}
+
+.statHeader,
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+}
+
+.statTitle,
+.snapshotLabel,
+.troopLabel,
+.sideHeader {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sectionHeader h3 {
+  margin: 0;
+  font-family: "Optician Sans", "Bruno Ace SC", sans-serif;
+  font-size: 0.82rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.breakdownGrid {
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  margin-bottom: 14px;
+}
+
+.snapshotGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.snapshotItem,
+.troopCard {
+  padding: 12px;
+  border: 1px solid rgba(0, 220, 130, 0.14);
+  border-radius: 12px;
+  background: rgba(5, 14, 12, 0.76);
+}
+
+.snapshotItem strong,
+.troopCard strong {
+  display: block;
+  margin-top: 8px;
+  font-size: 1rem;
+}
+
+.troopGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.signalSection {
+  margin-top: 12px;
+}
+
+.sideList,
+.insightList,
+.tagRow {
+  display: grid;
+  gap: 10px;
+}
+
+.signalTag,
+.insightPill {
+  display: inline-flex;
+  width: fit-content;
+  border-radius: 999px;
+  padding: 8px 12px;
+  font-size: 0.82rem;
+}
+
+.signalTag {
+  color: #c9eee0;
+  background: rgba(0, 220, 130, 0.08);
+  border: 1px solid rgba(0, 220, 130, 0.16);
+}
+
+.insightPill {
+  color: #062319;
+  background: linear-gradient(135deg, #00dc82 0%, #91ffd3 100%);
+}
+
+.sideItem {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 14px 0;
+  color: inherit;
+  text-decoration: none;
+  border-top: 1px solid rgba(0, 220, 130, 0.1);
+}
+
+.sideItem:first-child {
+  border-top: none;
+}
+
+.sideIdentity {
+  min-width: 0;
+}
+
+.sideIdentityText {
+  display: grid;
+  gap: 4px;
+}
+
+.sideIdentityText strong {
+  line-height: 1.2;
+}
+
+.sideIdentityText span,
+.sideMeta span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.sideMeta {
+  text-align: right;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-flex;
+}
+
+.tooltipButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border: 1px solid rgba(0, 220, 130, 0.2);
+  border-radius: 999px;
+  color: var(--accent-bright);
+  background: rgba(0, 220, 130, 0.08);
+  cursor: help;
+  padding: 0;
+  line-height: 0;
+}
+
+.tooltipBubble {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  width: min(300px, 72vw);
+  padding: 12px 14px;
+  border-radius: 14px;
+  color: var(--text);
+  background: rgba(6, 17, 15, 0.98);
+  border: 1px solid rgba(0, 220, 130, 0.2);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+  font-size: 0.85rem;
+  line-height: 1.5;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-4px);
+  transition: opacity 0.18s ease, transform 0.18s ease;
+  z-index: 10;
+}
+
+.tooltip:hover .tooltipBubble,
+.tooltip:focus-within .tooltipBubble {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 1180px) {
+  .layout,
+  .summaryGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .heroHeader {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    order: -1;
+  }
+}
+
+@media (max-width: 920px) {
+  .inputRow,
+  .controlGrid,
+  .primaryStats,
+  .breakdownGrid,
+  .snapshotGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .heroHeader,
+  .panelTop,
+  .metaRow,
+  .cardTop {
+    flex-direction: column;
+  }
+
+  .engineToggle {
+    justify-items: start;
+  }
+
+  .inputRow {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .page {
+    padding: 28px 16px 48px;
+    background-size: auto, auto, 34px 34px, 34px 34px, auto;
+  }
+
+  .title {
+    font-size: clamp(1.8rem, 10vw, 2.8rem);
+  }
+
+  .cardTitle {
+    font-size: 1.6rem;
+  }
+
+  .modeRow {
+    width: 100%;
+  }
+
+  .modeButton,
+  .button {
+    width: 100%;
+  }
+
+  .tooltipBubble {
+    left: 0;
+    right: auto;
+  }
+}

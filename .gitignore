@@ -1,0 +1,28 @@
+# dependencies
+/node_modules
+
+# next.js build output
+/.next
+/src/.next
+/out
+
+# local environment
+.env*.local
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+
+# local design/reference exports not needed for deployment
+/landing_page_figma-export
+/target_nations_figma-export
+/target_nations_figma-export.zip
+/Landing Page.jpg
+/Targets Listed Page.jpg
+/optician-sans.zip
